@@ -18,10 +18,11 @@ module.exports = {
      * @param {number} frames
      * @param {requestCallback} cb - The callback that is run once complete.
      */
+
     init: function(time, width=200, height=200, color='ffffff', bg='000000', name='default', frames=30, cb){
         // Set some sensible upper / lower bounds
-        this.width = this.clamp(width, 150, 900);
-        this.height = this.clamp(height, 150, 500);
+        this.width = this.clamp(width, 150, 900) /2;
+        this.height = this.clamp(height, 150, 500) /2;
         this.frames = this.clamp(frames, 1, 90);
 
         this.bg = '#' + bg;
@@ -81,7 +82,7 @@ module.exports = {
     encode: function(timeResult, cb){
         let enc = this.encoder;
         let ctx = this.ctx;
-        let tmpDir = '/tmp/';
+        let tmpDir = '/tmp/'
 
         // create the tmp directory if it doesn't exist
         if (!fs.existsSync(tmpDir)){
@@ -137,74 +138,74 @@ module.exports = {
                 ctx.fillStyle = '#221900';
                 ctx.fillRect(0, 0, this.width, this.height);
 
-                const numberFont = 'normal normal bold 60px arial'
-                const timeFont = 'normal normal bold 40px arial'
-                const titleFont = 'normal normal bold 24px arial'
-                const buttonFont = 'normal normal bold 24px arial'
+                const numberFont = 'normal normal bold 30px arial'
+                const timeFont = 'normal normal bold 20px arial'
+                const titleFont = 'normal normal bold 12px arial'
+                const buttonFont = 'normal normal bold 12px arial'
                 // 일 숫자
                 ctx.font = numberFont
                 ctx.fillStyle = this.textColor;
-                ctx.fillText(days.toString(), 176, 140)
+                ctx.fillText(days.toString(), 176/2, 140/2)
                 // 시간 숫자
                 ctx.font = numberFont
                 ctx.fillStyle = this.textColor;
-                ctx.fillText(hours.toString(), 328, 140)
+                ctx.fillText(hours.toString(), 328/2, 140/2)
                 // 분 숫자
                 ctx.font = numberFont
                 ctx.fillStyle = this.textColor;
-                ctx.fillText(minutes.toString(), 518, 140)
+                ctx.fillText(minutes.toString(), 518/2, 140/2)
                 // 초 숫자
                 ctx.font = numberFont
                 ctx.fillStyle = this.textColor;
-                ctx.fillText(seconds.toString(), 671, 140)
+                ctx.fillText(seconds.toString(), 671/2, 140/2)
 
                 // 일 한글
                 ctx.font = timeFont
                 ctx.fillStyle = this.textColor;
-                ctx.fillText('일', 230, 145)
+                ctx.fillText('일', 230/2, 145/2)
                 // 시간 한글
                 ctx.font = timeFont
                 ctx.fillStyle = this.textColor;
-                ctx.fillText('시간', 397, 145)
+                ctx.fillText('시간', 397/2, 145/2)
                 // 분 한글
                 ctx.font = timeFont
                 ctx.fillStyle = this.textColor;
-                ctx.fillText('분', 578, 145)
+                ctx.fillText('분', 578/2, 145/2)
                 // 초 한글
                 ctx.font = timeFont
                 ctx.fillStyle = this.textColor;
-                ctx.fillText('초', 731, 145)
+                ctx.fillText('초', 731/2, 145/2)
 
                 // 제목
                 ctx.font = titleFont
                 ctx.fillStyle = this.textColor;
-                ctx.fillText('프로모션 종료까지', 450, 73)
+                ctx.fillText('프로모션 종료까지', 450/2, 73/2)
 
                 // 늦기전에 사러가기 버튼
                 ctx.fillStyle = '#FF007B';
-                roundRect(ctx, 325, 196, 250, 60, 10, true);
+                roundRect(ctx, 325/2, 196/2, 250/2, 60/2, 10/2, true);
 
                 // 늦기전에 사러가기
                 ctx.font = buttonFont
                 ctx.fillStyle = this.textColor;
-                ctx.fillText('늦기전에 사러가기', 450, 226)
+                ctx.fillText('늦기전에 사러가기', 450/2, 226/2)
 
                 // 왼쪽 빨강이
                 ctx.fillStyle = '#FF007B';
                 ctx.beginPath();
                 ctx.moveTo(0,0)
-                ctx.lineTo(0,300)
-                ctx.lineTo(33, 300)
-                ctx.lineTo(98,0)
+                ctx.lineTo(0,300/2)
+                ctx.lineTo(33/2, 300/2)
+                ctx.lineTo(98/2,0)
                 ctx.fill();
 
                 // 오른쪽 빨강이
                 ctx.fillStyle = '#FF007B';
                 ctx.beginPath();
-                ctx.moveTo(900,0)
-                ctx.lineTo(900,300)
-                ctx.lineTo(802, 300)
-                ctx.lineTo(867,0)
+                ctx.moveTo(900/2,0)
+                ctx.lineTo(900/2,300/2)
+                ctx.lineTo(802/2, 300/2)
+                ctx.lineTo(867/2,0)
                 ctx.fill();
 
                 // add finalised frame to the gif
